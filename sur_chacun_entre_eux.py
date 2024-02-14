@@ -1,7 +1,7 @@
 import sys
 #vérification de la validité des arguments 
 
-if len(sys.argv) < 3 or not sys.argv[-1][0] in ['+','-'] and sys.argv[-1][1:].isdigit():
+if len(sys.argv) < 3 or not (sys.argv[-1][0] in ['+', '-'] and sys.argv[-1][1:].isdigit()):
     print("Error : Le programme nécessite au moins deux entier suivis d'une opération.")
     sys.exit(1)
 #Récupération de la liste d'entiers à partir des arguments du programme 
@@ -14,6 +14,8 @@ resultats = []
 for entier in entiers:
     
     if sys.argv[-1][0] == '+':
+        resultat = entier + operation
+    elif sys.argv[-1][0] == '-':
         resultat = entier + operation
        
     else:
